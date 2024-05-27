@@ -8,12 +8,37 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+variables:
+  - name: nom
+    value: EasyTest
+  - name: testeur
+    value: MouhcineHK
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: Build
+  displayName: 'Mon premier stage'
+  jobs:
+  - job: BuildJob
+    displayName: 'Mon premier job'
+    steps:
+    - script: echo $(nom) !
+      displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
+
+- stage: 
+  displayName: 'Mon second stage'
+  jobs:
+  - job: BuildJob
+    displayName: 'Mon second job'
+    steps:
+    - script: echo Hello $(testeur)!
+      displayName: 'Run a one-line script'
+
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
