@@ -10,10 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  - name: nom
-    value: EasyTest
-  - name: testeur
-    value: MouhcineHK
+ -group: variables-pipelines 
 
 stages:
 - stage: Build
